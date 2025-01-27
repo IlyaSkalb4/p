@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-lg navbar-light nav-foot-bg">
+    <div class="container-fluid">
+        <a class="navbar-brand text-white fs-3" aria-current="page" routerLink="" routerLinkActivate="active">{{mainNav}}</a>
+        <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+                <a class="nav-link text-white fs-5" routerLink="/eventsSearch" routerLinkActive="active">{{moviesNav}}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white fs-5"routerLink="/eventsSearch" routerLinkActive="active">{{concertsNav}}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white fs-5" routerLink="/eventsSearch" routerLinkActive="active">{{performancesNav}}</a>
+            </li>
+        </ul>
+
+        <div id="selectedEvents" class="d-flex justify-content-center">
+            <span class="text-white mt-2 mx-2">{{eventsNotSelected}}</span>
+            <div>
+                <a routerLink="/selectedEvents" routerLinkActive="active" class="btn btn-outline-primary mx-2">{{eventsListButton}}</a>
+            </div>
+        </div>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+</nav>
+
+<router-outlet></router-outlet>

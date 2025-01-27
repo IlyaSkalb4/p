@@ -1,0 +1,9 @@
+.container-mt {
+    margin-top: 5em;
+}
+
+.img-size {
+    min-height: 250px;
+    max-height: 400px;
+    object-fit: contain;
+}
