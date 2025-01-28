@@ -6,10 +6,9 @@ import { HomeComponent } from './components/home/home.component';
   selector: 'app-root',
   standalone: true,
   imports: [
-    RouterOutlet, 
+    RouterOutlet,
     RouterLink,
-    RouterLinkActive,
-    HomeComponent
+    RouterLinkActive
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
@@ -18,7 +17,7 @@ export class AppComponent {
   mainNav : string = 'Міські події';
   moviesNav: string = 'Фільми';
   concertsNav: string = 'Концерти';
-  performancesNav: string = 'Спектаклі';
+  performancesNav: string = 'Вистави';
   eventsNotSelected: string = 'Події не обрані';
   eventsListButton: string = 'Обрані події';
 }

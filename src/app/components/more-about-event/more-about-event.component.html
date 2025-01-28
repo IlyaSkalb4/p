@@ -1,1 +1,38 @@
-<p>more-about-event works!</p>
+<header class="text-center bg-light py-3 container-mt">
+  <h2 class="display-4 fw-bold">{{title}}</h2>
+</header>
+
+<main>
+  <div class="container mt-4 mb-2">
+    <div class="row">
+      <div class="col-6 mx-auto">
+        <div class="card text-bg-dark">
+          <img [src]="event.poster" class="card-img-top poster-img" alt="Event Poster" />
+
+          <div class="card-body">
+            <h2 class="card-title">{{ event.title }}</h2>
+            <h6 class="card-subtitle text-white">
+              {{ event.categories.join(', ') }}
+            </h6>
+            <p class="card-text mt-3">{{ event.description || 'Description not available.' }}</p>
+          </div>
+
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">📍 Address: {{ event.addressOfEvent }}</li>
+            <li class="list-group-item">🗓️ Date: {{ event.dateTimeOfEvent | date: 'fullDate' }}</li>
+            <li class="list-group-item">🕒 Time: {{ event.dateTimeOfEvent | date: 'shortTime' }}</li>
+          </ul>
+
+          <div class="card-footer text-end">
+            <a [routerLink]="'/eventsSearch'" class="btn btn-secondary">{{backToAllEvents}}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+
+<footer class="footer mt-auto py-3 nav-foot-bg text-center text-white">
+  <p class="m-0">{{allRightsReserved}}</p>
+</footer>

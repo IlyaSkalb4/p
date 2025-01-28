@@ -1,0 +1,33 @@
+.container-mt {
+  margin-top: 5em;
+}
+
+.card {
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+
+.poster-img {
+  object-fit: contain;
+  height: 600px;
+  border-bottom: 5px solid #fff; /* Stroke at the bottom */
+}
+
+.card-img-top {
+  border-radius: 10px 10px 0 0; /* Rounded top corners */
+}
+
+.list-group-item {
+  background-color: #222;
+  color: #fff;
+}
+
+.list-group-item:not(:last-child) {
+  border-bottom: 1px solid #444; /* Subtle divider */
+}
+
+.card-footer {
+  background-color: #222;
+  border-top: 1px solid #444;
+}

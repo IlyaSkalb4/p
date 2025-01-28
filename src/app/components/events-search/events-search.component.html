@@ -1,1 +1,33 @@
-<p>events-search works!</p>
+<header class="text-center bg-light py-3 container-mt">
+  <h2 class="display-4 fw-bold">{{title}}</h2>
+</header>
+
+<main>
+  <div class="container mb-3">
+    <div class="row g-3">
+      <div *ngFor="let event of filteredEvents" class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <div class="card text-bg-dark h-100 shadow-sm rounded">
+          <div class="card-header text-center text-uppercase fs-6">
+            {{ event.categories[1] }}
+          </div>
+          <img [src]="event.poster" class="card-img-top img-fluid" alt="Event Image" />
+          <div class="card-body">
+            <h6 class="card-title text-truncate">{{ event.title }}</h6>
+            <p class="card-text small text-truncate">{{ event.shortDescription }}</p>
+          </div>
+          <div class="card-footer d-flex justify-content-between">
+            <a [routerLink]="['/moreAboutEvent', event.id]" class="btn btn-sm btn-outline-info">{{ buttonDetails }}</a>
+            <a href="#" class="btn btn-sm btn-outline-primary">{{
+              buttonAddToSelected
+              }}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer class="footer mt-auto py-3 nav-foot-bg text-center text-white">
+  <p class="m-0">{{allRightsReserved}}</p>
+</footer>

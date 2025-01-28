@@ -1,9 +1,14 @@
 .container-mt {
-    margin-top: 5em;
+  margin-top: 5em;
 }
 
 .img-size {
-    min-height: 250px;
-    max-height: 400px;
-    object-fit: contain;
+  max-height: 400px;
+  object-fit: contain;
+}
+
+.img-thumbnail {
+  padding: 0;
+  margin: 0;
+  border-width: 1px;
 }

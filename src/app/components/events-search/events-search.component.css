@@ -1,0 +1,25 @@
+.container-mt {
+  margin-top: 5em;
+}
+
+.card-header {
+  font-weight: bold;
+}
+
+.card-title {
+  font-size: 0.95rem;
+}
+
+.card-text {
+  font-size: 0.85rem;
+  color: #ccc;
+}
+
+.card-footer a {
+  font-size: 0.8rem;
+}
+
+img {
+  object-fit: contain;
+  height: 250px;
+}
