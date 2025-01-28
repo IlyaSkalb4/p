@@ -1,0 +1,13 @@
+.container-mt {
+  margin-top: 5em;
+}
+
+table {
+  width: 100%;
+  text-align: center;
+}
+
+img {
+  object-fit: contain;
+  border-radius: 8px;
+}

@@ -20,7 +20,8 @@
     <div id="selectedEvents" class="d-flex justify-content-center">
       <span class="text-white mt-2 mx-2">{{eventsNotSelected}}</span>
       <div>
-        <a routerLink="/selectedEvents" routerLinkActive="active" class="btn btn-success mx-2">{{eventsListButton}}</a>
+        <a routerLink="/selectedEvents" routerLinkActive="active" class="btn btn-success mx-2">{{eventsListButton}}
+          ({{ selectedEventsCount$ | async }})</a>
       </div>
     </div>
 

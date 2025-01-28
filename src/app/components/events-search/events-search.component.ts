@@ -3,6 +3,8 @@ import { Component } from '@angular/core';
 import { EVENTS } from '../../models/mocks/mock-events';
 import { EventMeet } from '../../models/event-meet';
 import { ActivatedRoute, RouterLink } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { addEvent } from '../../actions/events.actions';
 
 @Component({
   selector: 'app-events-search',
@@ -23,7 +25,7 @@ export class EventsSearchComponent {
 
   filteredEvents: EventMeet[] = this.events;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private store: Store<{ events: EventMeet[] }>) { }
 
   ngOnInit(): void {
     this.route.queryParams.subscribe((params) => {
@@ -40,4 +42,8 @@ export class EventsSearchComponent {
       }
     });
   }
+
+  addToSelected(event: EventMeet): void {
+      this.store.dispatch(addEvent({ event }));
+    }
 }

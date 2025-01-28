@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
-import { HomeComponent } from './components/home/home.component';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { EventMeet } from './models/event-meet';
+import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +11,8 @@ import { HomeComponent } from './components/home/home.component';
   imports: [
     RouterOutlet,
     RouterLink,
-    RouterLinkActive
+    RouterLinkActive,
+    AsyncPipe
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
@@ -20,4 +24,9 @@ export class AppComponent {
   performancesNav: string = 'Вистави';
   eventsNotSelected: string = 'Події не обрані';
   eventsListButton: string = 'Обрані події';
+  selectedEventsCount$: Observable<number>;
+
+  constructor(private store: Store<{ events: EventMeet[] }>) {
+    this.selectedEventsCount$ = store.select((state) => state.events.length);
+  }
 }

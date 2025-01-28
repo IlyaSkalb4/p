@@ -1,1 +1,49 @@
-<p>selected-events works!</p>
+<header class="text-center bg-light py-3 container-mt">
+  <h2 class="display-4 fw-bold">{{title}}</h2>
+</header>
+
+<main>
+  <div class="container mt-4">
+    <h2 class="text-center">Selected Events</h2>
+    <table class="table table-dark table-striped mt-4">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Poster</th>
+          <th>Title</th>
+          <th>Categories</th>
+          <th>Address</th>
+          <th>Date & Time</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let event of (selectedEvents$ | async); let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>
+            <img [src]="event.poster" alt="Event Poster" style="height: 100px" />
+          </td>
+          <td>{{ event.title }}</td>
+          <td>{{ event.categories.join(', ') }}</td>
+          <td>{{ event.addressOfEvent }}</td>
+          <td>
+            {{ event.dateTimeOfEvent | date: 'fullDate' }},
+            {{ event.dateTimeOfEvent | date: 'shortTime' }}
+          </td>
+          <td>
+            <button
+              class="btn btn-danger btn-sm"
+              (click)="removeFromSelected(event.id)"
+            >
+              Remove
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</main>
+
+<footer class="footer mt-auto py-3 nav-foot-bg text-center text-white">
+  <p class="m-0">{{allRightsReserved}}</p>
+</footer>
