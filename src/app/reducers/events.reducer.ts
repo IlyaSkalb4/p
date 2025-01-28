@@ -4,14 +4,16 @@ import { EventMeet } from '../models/event-meet';
 
 export const initialState: EventMeet[] = [];
 
-export const eventsReducer = createReducer(
+export const selectSelectedEvents = (state: { selectedEvents: EventMeet[] }) => state.selectedEvents;
+
+export const selectedEventsReducer = createReducer(
   initialState,
   on(addEvent, (state, { event }) => {
-    if (state.find((e) => e.id === event.id)) return state;
+    console.log('Reducer: Adding event', event);
     return [...state, event];
   }),
-  on(removeEvent, (state, { eventId }) =>
-    state.filter((event) => event.id !== eventId)
-  ),
-  on(clearEvents, () => [])
+  on(removeEvent, (state, { eventId }) => {
+    console.log('Reducer: Removing event with id', eventId);
+    return state.filter((event) => event.id !== eventId);
+  })
 );

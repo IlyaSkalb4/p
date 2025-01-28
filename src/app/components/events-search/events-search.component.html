@@ -17,9 +17,9 @@
           </div>
           <div class="card-footer d-flex justify-content-between">
             <a [routerLink]="['/moreAboutEvent', event.id]" class="btn btn-sm btn-outline-info">{{ buttonDetails }}</a>
-            <a (click)="addToSelected(event)" class="btn btn-sm btn-outline-primary">{{
+            <button (click)="addToSelected(event)" class="btn btn-sm btn-outline-primary">{{
               buttonAddToSelected
-              }}</a>
+              }}</button>
           </div>
         </div>
       </div>

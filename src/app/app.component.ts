@@ -3,7 +3,9 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { EventMeet } from './models/event-meet';
-import { AsyncPipe } from '@angular/common';
+import { AsyncPipe, CommonModule } from '@angular/common';
+import { selectSelectedEvents } from './reducers/events.reducer';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +14,7 @@ import { AsyncPipe } from '@angular/common';
     RouterOutlet,
     RouterLink,
     RouterLinkActive,
-    AsyncPipe
+    CommonModule
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
@@ -23,10 +25,13 @@ export class AppComponent {
   concertsNav: string = 'Концерти';
   performancesNav: string = 'Вистави';
   eventsNotSelected: string = 'Події не обрані';
+  eventsSelected: string = 'Подій обрано';
   eventsListButton: string = 'Обрані події';
   selectedEventsCount$: Observable<number>;
 
-  constructor(private store: Store<{ events: EventMeet[] }>) {
-    this.selectedEventsCount$ = store.select((state) => state.events.length);
+  constructor(private store: Store<{ selectedEvents: EventMeet[] }>) {
+    this.selectedEventsCount$ = this.store.select(selectSelectedEvents).pipe(
+      map((events) => events.length)
+    );
   }
 }

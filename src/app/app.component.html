@@ -18,10 +18,18 @@
     </ul>
 
     <div id="selectedEvents" class="d-flex justify-content-center">
-      <span class="text-white mt-2 mx-2">{{eventsNotSelected}}</span>
-      <div>
-        <a routerLink="/selectedEvents" routerLinkActive="active" class="btn btn-success mx-2">{{eventsListButton}}
-          ({{ selectedEventsCount$ | async }})</a>
+      <div *ngIf="(selectedEventsCount$ | async) as count">
+        <span class="text-white mt-2 mx-2">
+          <ng-container *ngIf="count > 0; else noEvents">
+            {{eventsSelected}}: {{ count }}
+          </ng-container>
+          <ng-template #noEvents>
+            {{eventsNotSelected}}
+          </ng-template>
+        </span>
+        <a [routerLink]="'/selectedEvents'" routerLinkActive="active" class="btn btn-success mx-2">
+          {{ eventsListButton }}
+        </a>
       </div>
     </div>
 

@@ -15,7 +15,7 @@
                     </div>
                     <div class="card-footer d-flex justify-content-end">
                         <a [routerLink]="['/moreAboutEvent', latestEvent.id]" class="btn btn-outline-info mx-2">{{buttonDetails}}</a>
-                        <a (click)="addToSelected(latestEvent)" class="btn btn-outline-primary">{{buttonAddToSelected}}</a>
+                        <button (click)="addToSelected(latestEvent)" class="btn btn-outline-primary">{{buttonAddToSelected}}</button>
                     </div>
                 </div>
             </div>
